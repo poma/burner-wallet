@@ -45,6 +45,7 @@ import RNMessageChannel from 'react-native-webview-messaging';
 
 
 import bufficorn from './bufficorn.png';
+import buffiz from './buffiz.png';
 import cypherpunk from './cypherpunk.png';
 import eth from './ethereum.png';
 import dai from './dai.jpg';
@@ -92,13 +93,13 @@ if (window.location.hostname.indexOf("localhost") >= 0 || window.location.hostna
     ERC20TOKEN = false
     ERC20IMAGE = false
   }else{
-    ERC20NAME = 'BUFF'
+    ERC20NAME = 'zDai'
     ERC20VENDOR = 'VendingMachine'
     ERC20TOKEN = 'ERC20Vendable'
-    ERC20IMAGE = bufficorn
+    ERC20IMAGE = buffiz
     XDAI_PROVIDER = "http://localhost:8545"
     WEB3_PROVIDER = "http://localhost:8545";
-    LOADERIMAGE = bufficorn
+    LOADERIMAGE = buffiz
   }
 
 }
@@ -133,6 +134,15 @@ else if (window.location.hostname.indexOf("buffidai") >= 0) {
   ERC20IMAGE = bufficorn
   LOADERIMAGE = bufficorn
 }
+else if (window.location.hostname.indexOf("zdai") >= 0) {
+  WEB3_PROVIDER = POA_XDAI_NODE;
+  CLAIM_RELAY = 'https://x.xdai.io'
+  ERC20NAME = 'zDai'
+  ERC20VENDOR = 'zDai'
+  ERC20TOKEN = 'zDai'
+  ERC20IMAGE = buffiz
+  LOADERIMAGE = buffiz
+}
 else if (window.location.hostname.indexOf("burnerwallet.io") >= 0) {
   WEB3_PROVIDER = POA_XDAI_NODE;
   CLAIM_RELAY = 'https://x.xdai.io'
@@ -158,6 +168,20 @@ if(ERC20NAME=="BUFF"){
   title = "BuffiDai.io"
   titleImage = (
     <img src={bufficorn} style={{
+      maxWidth:50,
+      maxHeight:50,
+      marginRight:15,
+      marginTop:-10
+    }}/>
+  )
+} else if(ERC20NAME=="zDai"){
+  mainStyle.backgroundImage = "linear-gradient(#540d48, #20012d)"
+  mainStyle.backgroundColor = "#20012d"
+  mainStyle.mainColor = "#b6299e"
+  mainStyle.mainColorAlt = "#de3ec3"
+  title = "zdai.io"
+  titleImage = (
+    <img src={buffiz} style={{
       maxWidth:50,
       maxHeight:50,
       marginRight:15,
