@@ -3,11 +3,11 @@ var fs = require('fs'),
     https = require('https'),
     express = require('express');
 var path = require('path');
-var port = 443;
+var port = 80;
 
 var options = {
-    key: fs.readFileSync('./privkey.pem'),
-    cert: fs.readFileSync('./fullchain.pem'),
+    // key: fs.readFileSync('./privkey.pem'),
+    // cert: fs.readFileSync('./fullchain.pem'),
 };
 
 var app = express();
