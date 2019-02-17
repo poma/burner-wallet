@@ -1,0 +1,43 @@
+version: '2'
+
+services:
+
+  nginx:
+    image: jwilder/nginx-proxy:latest
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /etc/nginx/certs
+      - /etc/nginx/conf.d
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion:stable
+    restart: always
+    volumes_from:
+      - nginx
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/nginx/certs
+
+  zdai:
+    image: poma/zdai-frontend
+    restart: always
+    environment:
+      VIRTUAL_HOST: zdai.io
+      LETSENCRYPT_HOST: zdai.io
+      PROVER: http://prover:80
+
+  prover:
+    image: poma/zdai-backend
+    restart: always
+    environment:
+      VIRTUAL_HOST: prover.zdai.io
+      LETSENCRYPT_HOST: prover.zdai.io
+
+  
