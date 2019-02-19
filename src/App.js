@@ -138,8 +138,8 @@ else if (window.location.hostname.indexOf("zdai") >= 0) {
   WEB3_PROVIDER = POA_XDAI_NODE;
   CLAIM_RELAY = 'https://x.xdai.io'
   ERC20NAME = 'zDai'
-  ERC20VENDOR = 'zDai'
-  ERC20TOKEN = 'zDai'
+  ERC20VENDOR = 'VendingMachine'
+  ERC20TOKEN = 'ERC20Vendable'
   ERC20IMAGE = buffiz
   LOADERIMAGE = buffiz
 }
@@ -1323,6 +1323,9 @@ render() {
             return (
               <div>
                 <div className="main-card card w-100" style={{zIndex:1}}>
+                <div style={{textAlign:'center',opacity:0.6,fontSize:'10pt',color:'red'}}>
+                  {i18n.t('wip')}
+                </div>
 
 
                   {extraTokens}

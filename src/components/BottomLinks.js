@@ -10,6 +10,11 @@ export default ({changeView}) => {
             <i className="fas fa-wrench"/> {i18n.t('advance')}
           </Scaler>
         </button>
+        <div style={{marginTop:8}}>
+          <a href="https://github.com/snjax/zDai-mixer" target="_blank">
+            <img src="/github.png" width="200" />
+          </a>
+        </div>
       </Scaler>
     </div>
   )

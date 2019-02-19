@@ -1,5 +1,6 @@
 {
   "en": {
+    "wip": "[WIP: Integration of Burner Wallet with our backend is still in progress, so transactions through this UI are not yet fully private]",
     "app_name": "Burner",
     "about": "About",
     "code": "Code",
